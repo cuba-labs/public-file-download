@@ -1,0 +1,1 @@
+create unique index IDX_DEMO_PUBLIC_FILE_UNIQ_LINK_ID on DEMO_PUBLIC_FILE (LINK_ID) ;

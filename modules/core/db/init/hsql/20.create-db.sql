@@ -1,0 +1,5 @@
+-- begin DEMO_PUBLIC_FILE
+alter table DEMO_PUBLIC_FILE add constraint FK_DEMO_PUBLIC_FILE_FILE foreign key (FILE_ID) references SYS_FILE(ID)^
+create unique index IDX_DEMO_PUBLIC_FILE_UNIQ_LINK_ID on DEMO_PUBLIC_FILE (LINK_ID) ^
+create index IDX_DEMO_PUBLIC_FILE_FILE on DEMO_PUBLIC_FILE (FILE_ID)^
+-- end DEMO_PUBLIC_FILE

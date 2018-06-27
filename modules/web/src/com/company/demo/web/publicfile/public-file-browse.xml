@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.demo.web.publicfile.PublicFileBrowse"
+        focusComponent="publicFilesTable"
+        lookupComponent="publicFilesTable"
+        messagesPack="com.company.demo.web.publicfile">
+    <dsContext>
+        <collectionDatasource id="publicFilesDs"
+                              class="com.company.demo.entity.PublicFile"
+                              view="publicFile-view">
+            <query>
+                <![CDATA[select e from demo$PublicFile e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="publicFilesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="publicFilesTable"
+                datasource="publicFilesDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="publicFilesTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="link" generator="generateLink" caption="Link"/>
+                <column id="file"/>
+                <column id="linkId"/>
+            </columns>
+            <rows datasource="publicFilesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="publicFilesTable.create"/>
+                <button id="editBtn"
+                        action="publicFilesTable.edit"/>
+                <button id="removeBtn"
+                        action="publicFilesTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
